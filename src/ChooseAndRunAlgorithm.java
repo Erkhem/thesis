@@ -1,16 +1,25 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import entity.Job;
 
 
 public class ChooseAndRunAlgorithm {
 
-	static LateJobP1 alg1 = new LateJobP1();
-	public static void main(String[] args) {
-		ArrayList<Job> sorted = alg1.getUserInput();
-		alg1.sortWeights(sorted);
-		alg1.positionTheElement(sorted);
+		static LateJobP1 alg1 = new LateJobP1();
+		static float fl = 12;
 		
-		GeneticAlgorithms geneticAlgr = new GeneticAlgorithms(10);
-		geneticAlgr.szukajOptimum();
+	public static void main(String[] args) {
+			
+		LateJobP1 greedyAlgorithm = new LateJobP1(1000);
+		Job[] optimalSolution = greedyAlgorithm.findOptimum();
+		fl = 3;
+		
+		for(Job j1:optimalSolution){
+			int d = j1.getDeadline();
+		}
+		WithProcessingTime simmulatedAnneaing = new WithProcessingTime(10);
+		simmulatedAnneaing.findOptimum();
 	}
 
 }

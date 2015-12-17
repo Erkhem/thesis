@@ -3,10 +3,21 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
+import entity.Job;
+
 
 public class LateJobP1 {
 	
 	ArrayList<Job> jobs = new ArrayList<Job>();
+	
+	public LateJobP1(int numberOfJob){
+		for(int i = 0; i<numberOfJob; i++){
+			jobs.add(new Job());
+		}
+	}
+	public LateJobP1(){
+		
+	}
 
 	public ArrayList<Job> getUserInput(){
 		long tempWeight;
@@ -49,12 +60,17 @@ public class LateJobP1 {
 		return true;
 	}
 	
-	public void positionTheElement(ArrayList<Job> sortedJobs){
-		ArrayList<Job> positionedJobs = new ArrayList<Job>();
-		
+	/**
+	 * After sorting job according to its weigh:
+	 * Take the most profitable(most weighted) job and schedule it in latest free
+	 * slot meeting its deadline
+	 * If there is no free slot meeting it's deadline, do not schedule the job
+	 * @param sortedJobs
+	 */
+	public Job[] positionTheElement(ArrayList<Job> sortedJobs){
+				
 		int countOfJobs = sortedJobs.size();
 		Job[] scheduledJobs = new Job[countOfJobs];
-		boolean isJobsMeetDeadlines=false;
 		for(Job job:sortedJobs){
 			boolean findNextFreeIndex = true;
 			int iterator = countOfJobs-1;
@@ -73,13 +89,14 @@ public class LateJobP1 {
 						
 					}
 				}
-								
-						
-			isJobsMeetDeadlines = checkIfDeadlinesAreMet(positionedJobs);
-			if(!isJobsMeetDeadlines){
-				//Shuffle the jobs
-				
-			}
 		}
+		return scheduledJobs;
 	}	
+	
+	public Job[] findOptimum(){
+		sortWeights(jobs);
+		//after sort, position the element
+		return positionTheElement(jobs);
+	}
+	
 }

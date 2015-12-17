@@ -1,3 +1,4 @@
+package entity;
 import java.util.Random;
 
 
@@ -51,8 +52,8 @@ public class Job {
 		{
 			Random generator = new Random();
 			weight = generator.nextInt(100)+1;
-			processingTime = generator.nextInt(100)+1;	 					//sec
-			deadline = (int) (generator.nextInt(100)+1+processingTime);//oczekiwany czas zakończenia sekund
+			processingTime = 1; //generator.nextInt(100)+1;	 					//sec
+			deadline = (int) (generator.nextInt(100)+1+processingTime);
 		}
 	public String toString(){
 		return "Weight: "+weight+" processing Time: "+processingTime+" deadline: "+deadline;
