@@ -1,6 +1,7 @@
 package algorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -39,7 +40,7 @@ public class Greedy {
 				while(findNextFreeIndex & iterator >=0 ){
 					if(job.getDeadline()>iterator && scheduledJobs[iterator] ==null){
 						scheduledJobs[iterator] = job;
-						job.setPosition(iterator);
+//						job.setPosition(iterator);
 						findNextFreeIndex = false;
 					}
 					else{
@@ -50,15 +51,17 @@ public class Greedy {
 					//if findNextFreeIndex is still true, which indicates this job hasn't scheduled.
 					//Then add the weight of unscheduled job to ObjectiveFunctionValue.
 					objectiveFunctionValue +=job.getWeight();
-					job.setPosition(-1);
+	//				job.setPosition(-1);
 				}
 		}
 		return scheduledJobs;
 	}
 	
-	public Job[] findOptimum(ArrayList<Job> jobs){
+	public ArrayList<Job> findOptimum(ArrayList<Job> jobs){
 		sortWeights(jobs);
-		return positionTheElement(jobs);
+		Job[] positionedArrayOfJobs = positionTheElement(jobs);
+		ArrayList<Job> arrayListJobs = new ArrayList<>(Arrays.asList(positionedArrayOfJobs));
+		return arrayListJobs;
 	}
 	
 	public long getObjectiveFunctionValue(){

@@ -30,6 +30,7 @@ public class Evolutionary {
 		return 0;
 	}
 	
-	//Greate valid permutation of jobs
-
+	//Create valid permutation of jobs
+	
+	
 }

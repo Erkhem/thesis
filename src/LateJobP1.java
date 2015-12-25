@@ -53,10 +53,10 @@ public class LateJobP1 {
 	
 	public boolean checkIfDeadlinesAreMet(ArrayList<Job> jobs){		
 		for(Job eachJob:jobs){
-			if(eachJob.getDeadline()<eachJob.getPosition()){
+//			if(eachJob.getDeadline()<eachJob.getPosition()){
 			return false;	
 			}
-		}		
+//		}		
 		return true;
 	}
 	

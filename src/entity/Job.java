@@ -1,19 +1,21 @@
 package entity;
+import java.io.Serializable;
 import java.util.Random;
 
 
-public class Job {
-	private int position;
+public class Job implements Serializable {
+//	private int position;
 	private long weight;
 	private int deadline;
 	private long processingTime;
-	
+/*	
 	public int getPosition() {
 		return position;
 	}
 	public void setPosition(int position) {
 		this.position = position;
 	}
+	*/
 	public long getWeight() {
 		return weight;
 	}
@@ -45,7 +47,7 @@ public class Job {
 	public Job(long weight, int deadline, int position){
 		this.weight = weight;
 		this.deadline = deadline;
-		this.position = position;
+//		this.position = position;
 	}
 	
 	public Job()
