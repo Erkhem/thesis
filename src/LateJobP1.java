@@ -12,7 +12,7 @@ public class LateJobP1 {
 	
 	public LateJobP1(int numberOfJob){
 		for(int i = 0; i<numberOfJob; i++){
-			jobs.add(new Job());
+			jobs.add(new Job(1000));
 		}
 	}
 	public LateJobP1(){

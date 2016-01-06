@@ -50,13 +50,16 @@ public class Job implements Serializable {
 //		this.position = position;
 	}
 	
-	public Job()
+	public Job(int numberOfJobs)
 		{
 			Random generator = new Random();
-			weight = generator.nextInt(100)+1;
-			processingTime = 1; //generator.nextInt(100)+1;	 					//sec
-			deadline = (int) (generator.nextInt(100)+1+processingTime);
+			weight = generator.nextInt(numberOfJobs/2)+1;
+			processingTime =generator.nextInt(numberOfJobs)+2;	 					//sec
+			deadline = (int) (generator.nextInt(numberOfJobs));
 		}
+	public Job(){
+		
+	}
 	public String toString(){
 		return "Weight: "+weight+" processing Time: "+processingTime+" deadline: "+deadline;
 	}

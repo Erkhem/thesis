@@ -21,8 +21,18 @@ public class ChooseAndRunAlgorithm {
 	public static void main(String[] args) {
 		SimulatedAnnealing sa = new SimulatedAnnealing();	
 		Greedy greedyA = new Greedy();
+		
 		try {
-			ArrayList<Job> jobs = mapper.readValue(new File("json_processingTime_1.json"), new TypeReference<ArrayList<Job>>() {
+			
+			/*
+			ArrayList<Job> jobs12 = new ArrayList<Job>();
+			for(int i = 1; i<1000; i++){
+				jobs12.add(new Job(1000));
+			}
+			mapper.writeValue(new File("json_example_proc_diff.json"),jobs12);
+			*/
+			
+			ArrayList<Job> jobs = mapper.readValue(new File("json_example_procDiff.json"), new TypeReference<ArrayList<Job>>() {
 			});
 			ArrayList<Job> copyOfOriginal = jobs;
 			//find optimum solution using SA algorithm
@@ -31,7 +41,6 @@ public class ChooseAndRunAlgorithm {
 			ArrayList<Job> greedySolution = greedyA.findOptimum(jobs); //bagtahgui bol position hhgui bgaa
 			System.out.println("Greedy solution: " + greedyA.getObjectiveFunctionValue());
 			
-	//		mapper.writeValue(new File("json_example.json"),);
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}

@@ -14,7 +14,7 @@ public class WithProcessingTime {
 		jobs = new ArrayList<Job>();
 
 		for (int j = 0; j < jobCount; j++){
-			jobs.add(new Job());
+			jobs.add(new Job(1000));
 		}
 	}
 	
