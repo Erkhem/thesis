@@ -1,0 +1,1 @@
+[{"weight":1,"deadline":4,"processingTime":1},{"weight":2,"deadline":1,"processingTime":1},{"weight":3,"deadline":2,"processingTime":4},{"weight":4,"deadline":0,"processingTime":3},{"weight":5,"deadline":1,"processingTime":2}]

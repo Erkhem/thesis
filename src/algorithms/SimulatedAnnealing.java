@@ -9,9 +9,10 @@ import entity.Job;
 
 public class SimulatedAnnealing {
 
-	private float endConditionTemperature=2.5F;
-	private int begginingTemperature;
-	float alpha = 0.99F;
+	private float endConditionTemperature=1F;
+	private float begginingTemperature;
+	float alpha = 0.9F;
+	int size = 0;
 	
 	ArrayList<Job> unsuccessfullyScheduled = new ArrayList<>();
 	
@@ -28,7 +29,7 @@ public class SimulatedAnnealing {
 				unsuccessfullyScheduled.add(i);
 			}
 		}
-		System.out.println("WTW:   " + weightSum);
+		System.out.println("Simulated Annealing WTW:   " + weightSum);
 		currentNeededTime = 0;
 		return weightSum;
 	}
@@ -38,9 +39,11 @@ public class SimulatedAnnealing {
 		int replaceWith2 = 0;
 		int replaceWith1 = 0;
 		int alternativeCost = 0;
+		size = currentSolution.size();
 		
 		Random random = new Random();
-		float temperature = (float) assignBegginingTemperature(currentSolution);
+		float temperature = (float) assignBeginningTemperature(currentSolution);
+		begginingTemperature = 1000L;
 		
 		Job temp = null;
 		ArrayList<Job> copyJobs = currentSolution; 
@@ -55,6 +58,13 @@ public class SimulatedAnnealing {
 			copyJobs.set(replaceWith1, copyJobs.get(replaceWith2));
 			copyJobs.set(replaceWith2, temp);
 			
+			replaceWith1 = random.nextInt(currentSolution.size());
+			replaceWith2 = random.nextInt(currentSolution.size());
+			
+			temp = copyJobs.get(replaceWith1);
+			copyJobs.set(replaceWith1, copyJobs.get(replaceWith2));
+			copyJobs.set(replaceWith2, temp);
+			
 			//Calculating alternative Jobs
 			alternativeCost = calculate(copyJobs);
 			
@@ -62,10 +72,12 @@ public class SimulatedAnnealing {
 				currentSolution = copyJobs;
 				currentCost = alternativeCost;
 			}
-			else if(random.nextInt(2)<powerFunction(alternativeCost, currentCost, temperature)){
+			else 
+				if(random.nextInt(2)<powerFunction(alternativeCost, currentCost, temperature)){
 				currentSolution = copyJobs;
 			}
 			temperature = changeTemperature(temperature);
+			//temperature = alternativeAlpha(temperature);
 			System.out.println("Current Cost: "+currentCost);
 		}
 		
@@ -80,15 +92,29 @@ public class SimulatedAnnealing {
 		return currentTemp*alpha;
 	}
 	
-	private double assignBegginingTemperature(ArrayList<Job> currentSolutionJobs){
-		int [] mediane = new int[currentSolutionJobs.size()+1];
-		int j = 0;
-		for(Job job:currentSolutionJobs){
-			j++;
-			mediane[j] = job.getDeadline();
-		}
-		Arrays.sort(mediane);
-		return Math.sqrt(currentSolutionJobs.size()*mediane[mediane.length/2]);
+	private double alphaB() {
+		return (float)(begginingTemperature - endConditionTemperature)/(Math.pow((float)begginingTemperature*endConditionTemperature,2.7));
+	}
+	private float alternativeAlpha(float currentTemp) {
+		return (float) ((0.00001 + currentTemp) / (1 + (alphaB() * (currentTemp))));
+	}
+	
+	private double alphaC() {
+		return Math.pow((float)begginingTemperature, (float)(-1/(Math.pow((float)size, 3.5))));
+	}
+	private float thirdAlternativeAlpha(float currentTemp) {
+		return (float) (currentTemp*alphaC());
+	}
+	
+	private double assignBeginningTemperature(ArrayList<Job> currentSolutionJobs){
+			int [] mediane = new int[currentSolutionJobs.size()+1];
+			int j = 0;
+			for(Job job:currentSolutionJobs){
+				j++;
+				mediane[j] = job.getDeadline();
+			}
+			Arrays.sort(mediane);
+			return Math.sqrt(currentSolutionJobs.size()*mediane[mediane.length/2]);
 	}
 	
 }

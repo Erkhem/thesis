@@ -4,7 +4,8 @@ import java.util.Random;
 
 
 public class Job implements Serializable {
-//	private int position;
+	public static int nextId;
+	private int id;
 	private long weight;
 	private int deadline;
 	private long processingTime;
@@ -52,15 +53,16 @@ public class Job implements Serializable {
 	
 	public Job(int numberOfJobs)
 		{
+			id = nextId++;
 			Random generator = new Random();
 			weight = generator.nextInt(numberOfJobs/2)+1;
-			processingTime =generator.nextInt(numberOfJobs)+2;	 					//sec
+			processingTime =generator.nextInt(numberOfJobs)+1;	 					//sec
 			deadline = (int) (generator.nextInt(numberOfJobs));
 		}
 	public Job(){
 		
 	}
 	public String toString(){
-		return "Weight: "+weight+" processing Time: "+processingTime+" deadline: "+deadline;
+		return "Id: "+id+"\n Weight: "+weight+"\n processing Time: "+processingTime+"\n deadline: "+deadline;
 	}
 }
