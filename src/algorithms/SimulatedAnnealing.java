@@ -13,6 +13,8 @@ public class SimulatedAnnealing {
 	private int begginingTemperature;
 	float alpha = 0.99F;
 	
+	ArrayList<Job> unsuccessfullyScheduled = new ArrayList<>();
+	
 	public int calculate(ArrayList<Job> jobArray) {		
 		int weightSum = 0;
 		int currentNeededTime=0;
@@ -23,6 +25,7 @@ public class SimulatedAnnealing {
 		//	System.out.println(currentNeededTime + "  current time");
 			if (currentNeededTime > i.getDeadline()) {
 				weightSum += i.getWeight();
+				unsuccessfullyScheduled.add(i);
 			}
 		}
 		System.out.println("WTW:   " + weightSum);
