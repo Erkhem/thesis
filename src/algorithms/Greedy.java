@@ -57,6 +57,20 @@ public class Greedy {
 		return scheduledJobs;
 	}
 	
+	//Algorithm which provides universal solution for both unit processing time and not unit processing time
+	//which will place the job in latest possible position according to it's deadline and how other jobs are scheduled.
+	//To implement this, new parameter start time, and position should be introduced to jobs
+	//or some timeline measurement
+	public ArrayList<Job> positionJobUniversal(ArrayList<Job> sortedJobs){
+		int processingTime=0;
+		for(Job job:sortedJobs){
+			processingTime = job.getDeadline();
+			
+		}
+		
+		return null;
+	}
+	
 	public ArrayList<Job> findOptimum(ArrayList<Job> jobs){
 		sortWeights(jobs);
 		Job[] positionedArrayOfJobs = positionTheElement(jobs);
