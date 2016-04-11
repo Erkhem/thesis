@@ -17,6 +17,9 @@ public class Job implements Serializable {
 		this.position = position;
 	}
 	*/
+	public int getId() {
+		return id;
+	}
 	public long getWeight() {
 		return weight;
 	}

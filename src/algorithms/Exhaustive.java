@@ -13,7 +13,6 @@ import entity.Job;
  */
 public class Exhaustive {
 	
-	private long minObjectiveFunctionVal;
 	ArrayList<Job> jobs;
 	
 	public void findPermutation(ArrayList<Job> jobs, ArrayList<Job> preceder){
@@ -55,10 +54,13 @@ public class Exhaustive {
 			permutation(jobs, n-1);
 			Collections.swap(jobs, i, n-1);
 		}
-			System.out.println(licz+ "MIN "+minGlobal);
+			//System.out.println(licz+ "MIN "+minGlobal);
 			
 	}
 	
+	public int getMinGlobal(){
+		return minGlobal;
+	}
 
 	
 	public int calculate(ArrayList<Job> jobArray) {		
@@ -73,7 +75,7 @@ public class Exhaustive {
 				weightSum += i.getWeight();
 			}
 		}
-		System.out.println("Exhaustive search's calculate WTW:   " + weightSum);
+		//System.out.println("Exhaustive search's calculate WTW:   " + weightSum);
 		currentNeededTime = 0;
 		return weightSum;
 	}

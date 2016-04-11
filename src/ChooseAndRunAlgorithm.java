@@ -18,7 +18,7 @@ public class ChooseAndRunAlgorithm {
 
 		static LateJobP1 alg1 = new LateJobP1();
 		static ObjectMapper mapper = new ObjectMapper();
-		
+		private static String fileDirectory = "data/json_small_test.json";
 		
 	public static void main(String[] args) {		
 		
@@ -27,7 +27,7 @@ public class ChooseAndRunAlgorithm {
 		
 		try {
 			int sum = findSum(1000);
-			
+			//To write to file JSON change the name and directory.
 			/*
 			ArrayList<Job> jobs12 = new ArrayList<Job>();
 			for(int i = 1; i<=5; i++){
@@ -36,16 +36,17 @@ public class ChooseAndRunAlgorithm {
 			mapper.writeValue(new File("json_small.json"),jobs12);
 			*/
 			
-			ArrayList<Job> jobs = mapper.readValue(new File("json_small.json"), new TypeReference<ArrayList<Job>>() {
+			ArrayList<Job> jobs = mapper.readValue(new File(fileDirectory), new TypeReference<ArrayList<Job>>() {
 			});
 			ArrayList<Job> copyOfOriginal = jobs;
 			Exhaustive exhaustive = new Exhaustive();
 			ArrayList<Job> emptyList = new ArrayList<Job>();
 			exhaustive.permutation(jobs, jobs.size());  // (jobs, emptyList);
+			System.out.println(exhaustive.getMinGlobal());
 			
 			//Greedy Algorithm with only sorting wieght
 			greedyA.sortWeights(jobs);
-			exhaustive.calculate(jobs);
+			System.out.println("Greedy Algorithm solution is "+exhaustive.calculate(jobs));
 			
 			/*
 			//Greedy Algorithm

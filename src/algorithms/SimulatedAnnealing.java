@@ -29,7 +29,7 @@ public class SimulatedAnnealing {
 				unsuccessfullyScheduled.add(i);
 			}
 		}
-		System.out.println("Simulated Annealing WTW:   " + weightSum);
+		//System.out.println("Simulated Annealing WTW:   " + weightSum);
 		currentNeededTime = 0;
 		return weightSum;
 	}
@@ -78,9 +78,9 @@ public class SimulatedAnnealing {
 			}
 			temperature = changeTemperature(temperature);
 			//temperature = alternativeAlpha(temperature);
-			System.out.println("Current Cost: "+currentCost);
+			//System.out.println("Current Cost: "+currentCost);
 		}
-		
+		System.out.println("Simulated Annealing: "+currentCost);
 		return currentCost;
 	}
 	
