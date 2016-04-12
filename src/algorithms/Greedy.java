@@ -5,11 +5,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+import com.google.common.collect.Range;
+import com.google.common.collect.RangeMap;
+import com.google.common.collect.TreeRangeMap;
+
 import entity.Job;
 
 public class Greedy {
 	
 	long objectiveFunctionValue;
+	RangeMap<Long,Integer> timeline = TreeRangeMap.create(); 
 	
 	//Sort jobs according to it's weights 
 	public void sortWeights(ArrayList<Job> jobs){
@@ -22,7 +27,7 @@ public class Greedy {
 	}
 	
 	/**
-	 * After sorting job according to its weigh:
+	 * After sorting job according to its weight:
 	 * Take the most profitable(most weighted) job and schedule it in latest free
 	 * slot meeting its deadline
 	 * If there is no free slot meeting it's deadline, do not schedule the job
@@ -64,7 +69,11 @@ public class Greedy {
 	public ArrayList<Job> positionJobUniversal(ArrayList<Job> sortedJobs){
 		int processingTime=0;
 		for(Job job:sortedJobs){
-			processingTime = job.getDeadline();
+			long deadline = job.getDeadline();
+			long processingTimeOfJob = job.getProcessingTime();
+			job.setEndTime(job.getDeadline());			
+			job.setStartTime(deadline-processingTimeOfJob);
+			timeline.put(Range.closed(job.getStartTime(), job.getEndTime()), job.getId());
 			
 		}
 		

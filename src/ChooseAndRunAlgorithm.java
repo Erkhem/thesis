@@ -7,6 +7,9 @@ import java.util.Collections;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.google.common.collect.Range;
+import com.google.common.collect.RangeMap;
+import com.google.common.collect.TreeRangeMap;
 
 import algorithms.Exhaustive;
 import algorithms.Greedy;
@@ -21,6 +24,14 @@ public class ChooseAndRunAlgorithm {
 		private static String fileDirectory = "data/json_small_test.json";
 		
 	public static void main(String[] args) {		
+		RangeMap<Integer,Integer> timeline = TreeRangeMap.create(); 
+		
+		timeline.put(Range.closed(3, 6), 1);
+		RangeMap<Integer,Integer> intersecting = timeline.subRangeMap(Range.closed(10, 15));
+		boolean noConflict = intersecting.toString()=="{}" ?true:false;
+		timeline.put(Range.closed(2, 5), 2);
+		System.out.println(intersecting.toString());
+		System.out.println(timeline.toString());
 		
 		SimulatedAnnealing sa = new SimulatedAnnealing();	
 		Greedy greedyA = new Greedy();
