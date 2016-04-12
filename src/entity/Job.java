@@ -6,9 +6,9 @@ import java.util.Random;
 public class Job implements Serializable {
 	public static int nextId;
 	private int id;
-	private final long weight;
-	private final int deadline;
-	private final long processingTime;
+	private  long weight;
+	private  int deadline;
+	private  long processingTime;
 	private long startTime;
 	private long endTime;
 	private int position;
@@ -48,6 +48,12 @@ public class Job implements Serializable {
 		this.deadline = deadline;
 		this.processingTime = processingTime;
 	}
+	public Job(int id,long weight, int deadline, long processingTime){
+		this.id = id;
+		this.weight = weight;
+		this.deadline = deadline;
+		this.processingTime = processingTime;
+	}
 	
 	public Job(int numberOfJobs)
 		{
@@ -59,5 +65,7 @@ public class Job implements Serializable {
 		}
 	public String toString(){
 		return "Id: "+id+"\n Weight: "+weight+"\n processing Time: "+processingTime+"\n deadline: "+deadline;
+	}
+	public Job(){		
 	}
 }
