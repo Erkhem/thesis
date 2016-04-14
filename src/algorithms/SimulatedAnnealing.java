@@ -9,7 +9,7 @@ import entity.Job;
 
 public class SimulatedAnnealing {
 
-	private float endConditionTemperature=1F;
+	private float endConditionTemperature=1.5F;
 	private float begginingTemperature;
 	float alpha = 0.9F;
 	int size = 0;
@@ -43,7 +43,7 @@ public class SimulatedAnnealing {
 		
 		Random random = new Random();
 		float temperature = (float) assignBeginningTemperature(currentSolution);
-		begginingTemperature = 1000L;
+		begginingTemperature = temperature;
 		
 		Job temp = null;
 		ArrayList<Job> copyJobs = currentSolution; 
@@ -76,8 +76,8 @@ public class SimulatedAnnealing {
 				if(random.nextInt(2)<powerFunction(alternativeCost, currentCost, temperature)){
 				currentSolution = copyJobs;
 			}
-			temperature = changeTemperature(temperature);
-			//temperature = alternativeAlpha(temperature);
+			//temperature = changeTemperature(temperature);
+			temperature = changeTempWithAlphaB(temperature);
 			//System.out.println("Current Cost: "+currentCost);
 		}
 		System.out.println("Simulated Annealing: "+currentCost);
@@ -95,14 +95,14 @@ public class SimulatedAnnealing {
 	private double alphaB() {
 		return (float)(begginingTemperature - endConditionTemperature)/(Math.pow((float)begginingTemperature*endConditionTemperature,2.7));
 	}
-	private float alternativeAlpha(float currentTemp) {
+	private float changeTempWithAlphaB(float currentTemp) {
 		return (float) ((0.00001 + currentTemp) / (1 + (alphaB() * (currentTemp))));
 	}
 	
 	private double alphaC() {
 		return Math.pow((float)begginingTemperature, (float)(-1/(Math.pow((float)size, 3.5))));
 	}
-	private float thirdAlternativeAlpha(float currentTemp) {
+	private float changeTempWithAlphaC(float currentTemp) {
 		return (float) (currentTemp*alphaC());
 	}
 	

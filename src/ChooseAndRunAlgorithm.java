@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,11 +25,12 @@ public class ChooseAndRunAlgorithm {
 		static LateJobP1 alg1 = new LateJobP1();
 		static ObjectMapper mapper = new ObjectMapper();
 		private static String fileDirectory = "data/json_300_test.json";
-		//to measure execution time
-		Stopwatch stopwatch = Stopwatch.createUnstarted();
+		
+		
 		
 	public static void main(String[] args) {		
-		
+		//to measure execution time
+		Stopwatch stopwatch = Stopwatch.createUnstarted();
 		SimulatedAnnealing sa = new SimulatedAnnealing();	
 		Greedy greedyA = new Greedy();
 		
@@ -45,28 +47,46 @@ public class ChooseAndRunAlgorithm {
 			
 			ArrayList<Job> jobs = mapper.readValue(new File(fileDirectory), new TypeReference<ArrayList<Job>>() {
 			});
-			ArrayList<Job> copyOfOriginal = new ArrayList<>(jobs);
+			ArrayList<Job> copyOfJobsSA = new ArrayList<>(jobs);
+			ArrayList<Job> copyOfJobsGreedy = new ArrayList<>(jobs);
 			
 			Exhaustive exhaustive = new Exhaustive();
-			
-			/*//Exhaustive search
+/*			stopwatch.start();
+			//Exhaustive search
 			exhaustive.permutation(jobs, jobs.size());  // (jobs, emptyList);
 			System.out.println(exhaustive.getMinGlobal());
+			stopwatch.stop();*/
 			
-			*/
+			//System.out.println("time spend on Exhaustive ----------: "+stopwatch.elapsed(TimeUnit.MILLISECONDS));
 			
+
+
+			Stopwatch stopwatchG1 = Stopwatch.createStarted();
 			//Greedy Algorithm with only sorting wieght
-			greedyA.sortWeights(jobs);
-			System.out.println("No disturbance Greedy Algorithm solution is "+exhaustive.calculate(jobs));
+			greedyA.sortWeights(copyOfJobsGreedy);
+			System.out.println("No disturbance Greedy Algorithm solution is "+exhaustive.calculate(copyOfJobsGreedy));
+			stopwatchG1.stop();
+		//	System.out.println("time spend on no disturbance Greedy algorithm:  -----------------"+stopwatch.elapsed(TimeUnit.MICROSECONDS));
 			
-			
-			//Greedy Algorithm with time interval and universal
-			greedyA.positionJobUniversal(jobs);
-			greedyA.sortByStartTime(jobs);
-			System.out.println("Greedy Algorithm universal solution is "+exhaustive.calculate(jobs));
-			
+			//stopwatch.reset();
+			Stopwatch stopwatchSA = Stopwatch.createStarted();
 			//find optimum solution using SA algorithm
-			sa.findOptimalSolution(copyOfOriginal);
+			sa.findOptimalSolution(copyOfJobsGreedy);
+			stopwatchSA.stop();
+			
+		//	System.out.println("time spend on SA: --------------"+stopwatch.elapsed(TimeUnit.MICROSECONDS));
+			
+			
+			Stopwatch stopwatchG2 = Stopwatch.createStarted();
+			//Greedy Algorithm with time interval and universal
+			greedyA.positionJobUniversal(copyOfJobsGreedy);
+			greedyA.sortByStartTime(copyOfJobsGreedy);
+			System.out.println("Greedy Algorithm universal solution is "+exhaustive.calculate(copyOfJobsGreedy));
+			stopwatchG2.stop();
+			
+			
+			
+			System.out.println("time spend on algorithm: -------------"+stopwatchSA.elapsed(TimeUnit.MILLISECONDS)+"\t"+stopwatchG1.elapsed(TimeUnit.MILLISECONDS)+"\t"+stopwatchG2.elapsed(TimeUnit.MILLISECONDS));
 			 			
 		} catch (IOException e) {			
 			e.printStackTrace();
