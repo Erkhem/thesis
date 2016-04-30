@@ -49,6 +49,7 @@ public class SimulatedAnnealing {
 		ArrayList<Job> copyJobs = currentSolution; 
 		
 		while(temperature>endConditionTemperature){
+		
 			
 			//creating new neighboring random solution
 			replaceWith1 = random.nextInt(currentSolution.size());
@@ -83,6 +84,25 @@ public class SimulatedAnnealing {
 		System.out.println("Simulated Annealing: "+currentCost);
 		return currentCost;
 	}
+	
+/*	
+	private void findNeighbour(ArrayList<Job> jobs){
+        for(int schedulePos1=0; schedulePos1 < schedule.permutationLenght(); schedulePos1++){
+            // Apply mutation rate
+            if(Math.random() < mutationRate){
+                // Get a second random position in the schedule
+                int schedulePos2 = (int) (schedule.permutationLenght() * Math.random());
+
+                // Get the jobs at target position in schedule
+                Job job1 = schedule.getJobAt(schedulePos1);
+                Job job2 = schedule.getJobAt(schedulePos2);
+
+                // Swap them around
+                schedule.setJobAt(schedulePos2, job1);
+                schedule.setJobAt(schedulePos1, job2);
+            }
+        }
+	}*/
 	
 	private double powerFunction(int newValue, int oldValue, float temperature){
 		return Math.pow(Math.E, -(newValue-oldValue)/temperature);

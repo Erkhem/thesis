@@ -15,7 +15,10 @@ import com.google.common.collect.RangeMap;
 import com.google.common.collect.TreeRangeMap;
 
 import algorithms.Exhaustive;
+import algorithms.GeneticAlgorithm;
 import algorithms.Greedy;
+import algorithms.Population;
+import algorithms.Schedule;
 import algorithms.SimulatedAnnealing;
 import entity.Job;
 
@@ -24,7 +27,7 @@ public class ChooseAndRunAlgorithm {
 
 		static LateJobP1 alg1 = new LateJobP1();
 		static ObjectMapper mapper = new ObjectMapper();
-		private static String fileDirectory = "data/json_300_test.json";
+		private static String fileDirectory = "data/json_100_test_p1.json";
 		
 		
 		
@@ -50,12 +53,29 @@ public class ChooseAndRunAlgorithm {
 			ArrayList<Job> copyOfJobsSA = new ArrayList<>(jobs);
 			ArrayList<Job> copyOfJobsGreedy = new ArrayList<>(jobs);
 			
+			Population initial = new Population(jobs, 50);
+			
+			for(int i = 0; i<50; i++){
+			initial = GeneticAlgorithm.evolvePopulation(initial);
+			for(int j=0; j<initial.getPopulationSize(); j++){
+				System.out.println(initial.getScheduleAt(j).getObjectiveFunctionValue());
+			}
+			
+			Schedule schedule = initial.getFittest();
+			int objFun = schedule.getObjectiveFunctionValue();
+			
+			System.out.println(" ------------------------------------- ");
+			}
+			Schedule schedule = initial.getFittest();
+			System.out.println("Genetic Algorithm: "+schedule.getObjectiveFunctionValue());
+			
+			
 			Exhaustive exhaustive = new Exhaustive();
-/*			stopwatch.start();
-			//Exhaustive search
-			exhaustive.permutation(jobs, jobs.size());  // (jobs, emptyList);
-			System.out.println(exhaustive.getMinGlobal());
-			stopwatch.stop();*/
+//			stopwatch.start();
+//			//Exhaustive search
+//			exhaustive.permutation(jobs, jobs.size());  // (jobs, emptyList);
+//			System.out.println(exhaustive.getMinGlobal());
+//			stopwatch.stop();
 			
 			//System.out.println("time spend on Exhaustive ----------: "+stopwatch.elapsed(TimeUnit.MILLISECONDS));
 			
@@ -71,7 +91,7 @@ public class ChooseAndRunAlgorithm {
 			//stopwatch.reset();
 			Stopwatch stopwatchSA = Stopwatch.createStarted();
 			//find optimum solution using SA algorithm
-			sa.findOptimalSolution(copyOfJobsGreedy);
+			sa.findOptimalSolution(copyOfJobsSA);
 			stopwatchSA.stop();
 			
 		//	System.out.println("time spend on SA: --------------"+stopwatch.elapsed(TimeUnit.MICROSECONDS));
@@ -80,7 +100,9 @@ public class ChooseAndRunAlgorithm {
 			Stopwatch stopwatchG2 = Stopwatch.createStarted();
 			//Greedy Algorithm with time interval and universal
 			greedyA.positionJobUniversal(copyOfJobsGreedy);
+			printPermutation(copyOfJobsGreedy);
 			greedyA.sortByStartTime(copyOfJobsGreedy);
+			printPermutation(copyOfJobsGreedy);
 			System.out.println("Greedy Algorithm universal solution is "+exhaustive.calculate(copyOfJobsGreedy));
 			stopwatchG2.stop();
 			
@@ -92,6 +114,14 @@ public class ChooseAndRunAlgorithm {
 			e.printStackTrace();
 		}	
 
+	}
+	
+	public static void printPermutation(ArrayList<Job> jobsToPrint){
+		System.out.print("Permutation of Jobs: ");
+		for(int i=0; i<jobsToPrint.size(); i++){
+			System.out.print(jobsToPrint.get(i).getId()+" ");
+		}
+		System.out.println("");
 	}
 
 }
