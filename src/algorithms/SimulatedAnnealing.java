@@ -2,6 +2,7 @@ package algorithms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -46,10 +47,21 @@ public class SimulatedAnnealing {
 		begginingTemperature = temperature;
 		
 		Job temp = null;
-		ArrayList<Job> copyJobs = currentSolution; 
+		ArrayList<Job> copyJobs = new ArrayList<>(currentSolution); 
 		
 		while(temperature>endConditionTemperature){
 		
+		int rounds =(int) (size*temperature);
+		for(int i=0;i<rounds;i++){
+			for(int j=0; j<rounds/10;j++){
+				int startPos= random.nextInt(size);
+				int endPos = random.nextInt(size);
+				if(startPos<endPos){
+				List<Job> subList = copyJobs.subList(startPos, endPos);
+				Collections.reverse(subList);
+				
+				}				
+			}
 			
 			//creating new neighboring random solution
 			replaceWith1 = random.nextInt(currentSolution.size());
@@ -57,14 +69,9 @@ public class SimulatedAnnealing {
 			
 			temp = copyJobs.get(replaceWith1);
 			copyJobs.set(replaceWith1, copyJobs.get(replaceWith2));
-			copyJobs.set(replaceWith2, temp);
+			copyJobs.set(replaceWith2, temp);		
 			
-			replaceWith1 = random.nextInt(currentSolution.size());
-			replaceWith2 = random.nextInt(currentSolution.size());
-			
-			temp = copyJobs.get(replaceWith1);
-			copyJobs.set(replaceWith1, copyJobs.get(replaceWith2));
-			copyJobs.set(replaceWith2, temp);
+		}
 			
 			//Calculating alternative Jobs
 			alternativeCost = calculate(copyJobs);

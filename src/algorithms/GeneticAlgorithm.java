@@ -8,10 +8,12 @@ import entity.Job;
 public class GeneticAlgorithm {
 
 	//GA Parameter
-    private static final double mutationRate = 0.5;
+	private static final double crossoverRate=0.7;
+    private static final double mutationRate = 0.4;
     private static final double reverseMutationRate = 0.2;
-    private static final int tournamentSize = 10;
+    private static final int tournamentSize = 5;
     private static final boolean elitism = true;
+    
 
     
     // Evolves a population over one generation
@@ -22,6 +24,7 @@ public class GeneticAlgorithm {
         int elitismOffset = 0;
         if (elitism) {
             newPopulation.saveSchedule(0, pop.getFittest());
+            System.out.println("Fittest of pop  "+newPopulation+" is"+newPopulation.getScheduleAt(0).getObjectiveFunctionValue());
             elitismOffset = 1;
         }
 
@@ -33,9 +36,20 @@ public class GeneticAlgorithm {
             Schedule parent1 = scheduleSelection(pop);
             Schedule parent2 = scheduleSelection(pop);
             // Crossover parents
-            Schedule child = crossover(parent1, parent2);
+            if(Math.random()<crossoverRate){
+            Schedule child = crossover(parent1, parent2);            
             // Add child to new population
             newPopulation.saveSchedule(i, child);
+            }
+            else{
+            	Schedule newParent1 = new Schedule(parent1.getPermutation());
+            	Schedule newParent2 = new Schedule(parent2.getPermutation());
+            	newPopulation.saveSchedule(i, newParent1);
+            	if(i<newPopulation.getPopulationSize()-1){
+            		i++;
+            		newPopulation.saveSchedule(i, newParent2);
+            	}
+            }
         }
 
         // Mutate the new population a bit to add some new genetic material

@@ -27,7 +27,7 @@ public class ChooseAndRunAlgorithm {
 
 		static LateJobP1 alg1 = new LateJobP1();
 		static ObjectMapper mapper = new ObjectMapper();
-		private static String fileDirectory = "data/json_100_test_p1.json";
+		private static String fileDirectory = "data/json_50_test_p1.json";
 		
 		
 		
@@ -53,24 +53,28 @@ public class ChooseAndRunAlgorithm {
 			ArrayList<Job> copyOfJobsSA = new ArrayList<>(jobs);
 			ArrayList<Job> copyOfJobsGreedy = new ArrayList<>(jobs);
 			
-			Population initial = new Population(jobs, 50);
+			Exhaustive exhaustive = new Exhaustive();
 			
-			for(int i = 0; i<50; i++){
-			initial = GeneticAlgorithm.evolvePopulation(initial);
-			for(int j=0; j<initial.getPopulationSize(); j++){
-				System.out.println(initial.getScheduleAt(j).getObjectiveFunctionValue());
-			}
+			Population initial = new Population(jobs, 10);
 			
-			Schedule schedule = initial.getFittest();
-			int objFun = schedule.getObjectiveFunctionValue();
-			
-			System.out.println(" ------------------------------------- ");
+			for(int i = 0; i<400; i++){
+				initial = GeneticAlgorithm.evolvePopulation(initial);
+				for(int j=0; j<initial.getPopulationSize(); j++){
+					Schedule scheduleAtJ = initial.getScheduleAt(j);
+					System.out.println(initial.getScheduleAt(j).getObjectiveFunctionValue());
+				}
+				
+				Schedule schedule = initial.getFittest();
+				int objFun = schedule.getObjectiveFunctionValue();
+				
+				System.out.println("fittest obj of this generation is "+ objFun+ "\n"+" ------------------------------------- ");
 			}
 			Schedule schedule = initial.getFittest();
 			System.out.println("Genetic Algorithm: "+schedule.getObjectiveFunctionValue());
+			System.out.println("Genetic algorithm fittest permutation ");
+			printPermutation(schedule.getPermutation());
 			
-			
-			Exhaustive exhaustive = new Exhaustive();
+
 //			stopwatch.start();
 //			//Exhaustive search
 //			exhaustive.permutation(jobs, jobs.size());  // (jobs, emptyList);
