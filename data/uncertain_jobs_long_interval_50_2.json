@@ -1,0 +1,301 @@
+[ {
+  "id" : 0,
+  "weightStart" : 1,
+  "weightEnd" : 44,
+  "deadline" : 46,
+  "processingTime" : 1
+}, {
+  "id" : 1,
+  "weightStart" : 5,
+  "weightEnd" : 115,
+  "deadline" : 40,
+  "processingTime" : 1
+}, {
+  "id" : 2,
+  "weightStart" : 4,
+  "weightEnd" : 35,
+  "deadline" : 48,
+  "processingTime" : 1
+}, {
+  "id" : 3,
+  "weightStart" : 10,
+  "weightEnd" : 133,
+  "deadline" : 20,
+  "processingTime" : 1
+}, {
+  "id" : 4,
+  "weightStart" : 3,
+  "weightEnd" : 69,
+  "deadline" : 38,
+  "processingTime" : 1
+}, {
+  "id" : 5,
+  "weightStart" : 7,
+  "weightEnd" : 56,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 6,
+  "weightStart" : 9,
+  "weightEnd" : 149,
+  "deadline" : 30,
+  "processingTime" : 1
+}, {
+  "id" : 7,
+  "weightStart" : 4,
+  "weightEnd" : 33,
+  "deadline" : 46,
+  "processingTime" : 1
+}, {
+  "id" : 8,
+  "weightStart" : 9,
+  "weightEnd" : 66,
+  "deadline" : 42,
+  "processingTime" : 1
+}, {
+  "id" : 9,
+  "weightStart" : 4,
+  "weightEnd" : 58,
+  "deadline" : 44,
+  "processingTime" : 1
+}, {
+  "id" : 10,
+  "weightStart" : 6,
+  "weightEnd" : 132,
+  "deadline" : 30,
+  "processingTime" : 1
+}, {
+  "id" : 11,
+  "weightStart" : 7,
+  "weightEnd" : 39,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 12,
+  "weightStart" : 2,
+  "weightEnd" : 70,
+  "deadline" : 49,
+  "processingTime" : 1
+}, {
+  "id" : 13,
+  "weightStart" : 6,
+  "weightEnd" : 119,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 14,
+  "weightStart" : 2,
+  "weightEnd" : 97,
+  "deadline" : 20,
+  "processingTime" : 1
+}, {
+  "id" : 15,
+  "weightStart" : 3,
+  "weightEnd" : 118,
+  "deadline" : 5,
+  "processingTime" : 1
+}, {
+  "id" : 16,
+  "weightStart" : 8,
+  "weightEnd" : 114,
+  "deadline" : 42,
+  "processingTime" : 1
+}, {
+  "id" : 17,
+  "weightStart" : 7,
+  "weightEnd" : 159,
+  "deadline" : 44,
+  "processingTime" : 1
+}, {
+  "id" : 18,
+  "weightStart" : 1,
+  "weightEnd" : 103,
+  "deadline" : 24,
+  "processingTime" : 1
+}, {
+  "id" : 19,
+  "weightStart" : 9,
+  "weightEnd" : 99,
+  "deadline" : 35,
+  "processingTime" : 1
+}, {
+  "id" : 20,
+  "weightStart" : 1,
+  "weightEnd" : 74,
+  "deadline" : 8,
+  "processingTime" : 1
+}, {
+  "id" : 21,
+  "weightStart" : 4,
+  "weightEnd" : 99,
+  "deadline" : 44,
+  "processingTime" : 1
+}, {
+  "id" : 22,
+  "weightStart" : 5,
+  "weightEnd" : 88,
+  "deadline" : 41,
+  "processingTime" : 1
+}, {
+  "id" : 23,
+  "weightStart" : 8,
+  "weightEnd" : 86,
+  "deadline" : 43,
+  "processingTime" : 1
+}, {
+  "id" : 24,
+  "weightStart" : 9,
+  "weightEnd" : 122,
+  "deadline" : 10,
+  "processingTime" : 1
+}, {
+  "id" : 25,
+  "weightStart" : 6,
+  "weightEnd" : 99,
+  "deadline" : 21,
+  "processingTime" : 1
+}, {
+  "id" : 26,
+  "weightStart" : 5,
+  "weightEnd" : 65,
+  "deadline" : 18,
+  "processingTime" : 1
+}, {
+  "id" : 27,
+  "weightStart" : 3,
+  "weightEnd" : 123,
+  "deadline" : 28,
+  "processingTime" : 1
+}, {
+  "id" : 28,
+  "weightStart" : 9,
+  "weightEnd" : 142,
+  "deadline" : 35,
+  "processingTime" : 1
+}, {
+  "id" : 29,
+  "weightStart" : 2,
+  "weightEnd" : 147,
+  "deadline" : 46,
+  "processingTime" : 1
+}, {
+  "id" : 30,
+  "weightStart" : 1,
+  "weightEnd" : 69,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 31,
+  "weightStart" : 8,
+  "weightEnd" : 146,
+  "deadline" : 43,
+  "processingTime" : 1
+}, {
+  "id" : 32,
+  "weightStart" : 5,
+  "weightEnd" : 127,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 33,
+  "weightStart" : 5,
+  "weightEnd" : 38,
+  "deadline" : 23,
+  "processingTime" : 1
+}, {
+  "id" : 34,
+  "weightStart" : 10,
+  "weightEnd" : 18,
+  "deadline" : 19,
+  "processingTime" : 1
+}, {
+  "id" : 35,
+  "weightStart" : 7,
+  "weightEnd" : 57,
+  "deadline" : 47,
+  "processingTime" : 1
+}, {
+  "id" : 36,
+  "weightStart" : 10,
+  "weightEnd" : 85,
+  "deadline" : 29,
+  "processingTime" : 1
+}, {
+  "id" : 37,
+  "weightStart" : 7,
+  "weightEnd" : 137,
+  "deadline" : 25,
+  "processingTime" : 1
+}, {
+  "id" : 38,
+  "weightStart" : 6,
+  "weightEnd" : 16,
+  "deadline" : 27,
+  "processingTime" : 1
+}, {
+  "id" : 39,
+  "weightStart" : 5,
+  "weightEnd" : 116,
+  "deadline" : 28,
+  "processingTime" : 1
+}, {
+  "id" : 40,
+  "weightStart" : 10,
+  "weightEnd" : 61,
+  "deadline" : 17,
+  "processingTime" : 1
+}, {
+  "id" : 41,
+  "weightStart" : 2,
+  "weightEnd" : 42,
+  "deadline" : 14,
+  "processingTime" : 1
+}, {
+  "id" : 42,
+  "weightStart" : 1,
+  "weightEnd" : 18,
+  "deadline" : 47,
+  "processingTime" : 1
+}, {
+  "id" : 43,
+  "weightStart" : 10,
+  "weightEnd" : 84,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 44,
+  "weightStart" : 1,
+  "weightEnd" : 59,
+  "deadline" : 26,
+  "processingTime" : 1
+}, {
+  "id" : 45,
+  "weightStart" : 6,
+  "weightEnd" : 129,
+  "deadline" : 12,
+  "processingTime" : 1
+}, {
+  "id" : 46,
+  "weightStart" : 2,
+  "weightEnd" : 103,
+  "deadline" : 13,
+  "processingTime" : 1
+}, {
+  "id" : 47,
+  "weightStart" : 8,
+  "weightEnd" : 71,
+  "deadline" : 20,
+  "processingTime" : 1
+}, {
+  "id" : 48,
+  "weightStart" : 1,
+  "weightEnd" : 34,
+  "deadline" : 37,
+  "processingTime" : 1
+}, {
+  "id" : 49,
+  "weightStart" : 6,
+  "weightEnd" : 19,
+  "deadline" : 30,
+  "processingTime" : 1
+} ]

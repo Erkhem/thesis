@@ -1,0 +1,61 @@
+[ {
+  "id" : 0,
+  "weightStart" : 1,
+  "weightEnd" : 107,
+  "deadline" : 4,
+  "processingTime" : 1
+}, {
+  "id" : 1,
+  "weightStart" : 3,
+  "weightEnd" : 57,
+  "deadline" : 1,
+  "processingTime" : 1
+}, {
+  "id" : 2,
+  "weightStart" : 1,
+  "weightEnd" : 120,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 3,
+  "weightStart" : 4,
+  "weightEnd" : 154,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 4,
+  "weightStart" : 5,
+  "weightEnd" : 77,
+  "deadline" : 4,
+  "processingTime" : 1
+}, {
+  "id" : 5,
+  "weightStart" : 6,
+  "weightEnd" : 71,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 6,
+  "weightStart" : 10,
+  "weightEnd" : 75,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 7,
+  "weightStart" : 4,
+  "weightEnd" : 73,
+  "deadline" : 9,
+  "processingTime" : 1
+}, {
+  "id" : 8,
+  "weightStart" : 1,
+  "weightEnd" : 45,
+  "deadline" : 1,
+  "processingTime" : 1
+}, {
+  "id" : 9,
+  "weightStart" : 5,
+  "weightEnd" : 121,
+  "deadline" : 9,
+  "processingTime" : 1
+} ]

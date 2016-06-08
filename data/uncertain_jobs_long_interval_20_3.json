@@ -1,0 +1,121 @@
+[ {
+  "id" : 0,
+  "weightStart" : 8,
+  "weightEnd" : 111,
+  "deadline" : 19,
+  "processingTime" : 1
+}, {
+  "id" : 1,
+  "weightStart" : 2,
+  "weightEnd" : 16,
+  "deadline" : 16,
+  "processingTime" : 1
+}, {
+  "id" : 2,
+  "weightStart" : 6,
+  "weightEnd" : 74,
+  "deadline" : 18,
+  "processingTime" : 1
+}, {
+  "id" : 3,
+  "weightStart" : 3,
+  "weightEnd" : 146,
+  "deadline" : 8,
+  "processingTime" : 1
+}, {
+  "id" : 4,
+  "weightStart" : 2,
+  "weightEnd" : 92,
+  "deadline" : 12,
+  "processingTime" : 1
+}, {
+  "id" : 5,
+  "weightStart" : 1,
+  "weightEnd" : 76,
+  "deadline" : 10,
+  "processingTime" : 1
+}, {
+  "id" : 6,
+  "weightStart" : 2,
+  "weightEnd" : 134,
+  "deadline" : 8,
+  "processingTime" : 1
+}, {
+  "id" : 7,
+  "weightStart" : 10,
+  "weightEnd" : 157,
+  "deadline" : 7,
+  "processingTime" : 1
+}, {
+  "id" : 8,
+  "weightStart" : 7,
+  "weightEnd" : 87,
+  "deadline" : 19,
+  "processingTime" : 1
+}, {
+  "id" : 9,
+  "weightStart" : 9,
+  "weightEnd" : 41,
+  "deadline" : 15,
+  "processingTime" : 1
+}, {
+  "id" : 10,
+  "weightStart" : 2,
+  "weightEnd" : 67,
+  "deadline" : 15,
+  "processingTime" : 1
+}, {
+  "id" : 11,
+  "weightStart" : 8,
+  "weightEnd" : 135,
+  "deadline" : 19,
+  "processingTime" : 1
+}, {
+  "id" : 12,
+  "weightStart" : 10,
+  "weightEnd" : 63,
+  "deadline" : 12,
+  "processingTime" : 1
+}, {
+  "id" : 13,
+  "weightStart" : 8,
+  "weightEnd" : 63,
+  "deadline" : 4,
+  "processingTime" : 1
+}, {
+  "id" : 14,
+  "weightStart" : 6,
+  "weightEnd" : 77,
+  "deadline" : 10,
+  "processingTime" : 1
+}, {
+  "id" : 15,
+  "weightStart" : 6,
+  "weightEnd" : 109,
+  "deadline" : 9,
+  "processingTime" : 1
+}, {
+  "id" : 16,
+  "weightStart" : 2,
+  "weightEnd" : 109,
+  "deadline" : 8,
+  "processingTime" : 1
+}, {
+  "id" : 17,
+  "weightStart" : 1,
+  "weightEnd" : 97,
+  "deadline" : 16,
+  "processingTime" : 1
+}, {
+  "id" : 18,
+  "weightStart" : 6,
+  "weightEnd" : 122,
+  "deadline" : 4,
+  "processingTime" : 1
+}, {
+  "id" : 19,
+  "weightStart" : 5,
+  "weightEnd" : 27,
+  "deadline" : 12,
+  "processingTime" : 1
+} ]

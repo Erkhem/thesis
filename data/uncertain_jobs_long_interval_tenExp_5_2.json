@@ -1,0 +1,31 @@
+[ {
+  "id" : 0,
+  "weightStart" : 3,
+  "weightEnd" : 115,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 1,
+  "weightStart" : 9,
+  "weightEnd" : 22,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 2,
+  "weightStart" : 5,
+  "weightEnd" : 112,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 3,
+  "weightStart" : 9,
+  "weightEnd" : 93,
+  "deadline" : 1,
+  "processingTime" : 1
+}, {
+  "id" : 4,
+  "weightStart" : 9,
+  "weightEnd" : 71,
+  "deadline" : 4,
+  "processingTime" : 1
+} ]

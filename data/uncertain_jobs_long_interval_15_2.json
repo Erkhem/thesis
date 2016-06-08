@@ -1,0 +1,91 @@
+[ {
+  "id" : 0,
+  "weightStart" : 9,
+  "weightEnd" : 112,
+  "deadline" : 11,
+  "processingTime" : 1
+}, {
+  "id" : 1,
+  "weightStart" : 7,
+  "weightEnd" : 71,
+  "deadline" : 5,
+  "processingTime" : 1
+}, {
+  "id" : 2,
+  "weightStart" : 5,
+  "weightEnd" : 59,
+  "deadline" : 11,
+  "processingTime" : 1
+}, {
+  "id" : 3,
+  "weightStart" : 10,
+  "weightEnd" : 158,
+  "deadline" : 10,
+  "processingTime" : 1
+}, {
+  "id" : 4,
+  "weightStart" : 7,
+  "weightEnd" : 67,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 5,
+  "weightStart" : 5,
+  "weightEnd" : 33,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 6,
+  "weightStart" : 9,
+  "weightEnd" : 123,
+  "deadline" : 4,
+  "processingTime" : 1
+}, {
+  "id" : 7,
+  "weightStart" : 1,
+  "weightEnd" : 124,
+  "deadline" : 4,
+  "processingTime" : 1
+}, {
+  "id" : 8,
+  "weightStart" : 5,
+  "weightEnd" : 45,
+  "deadline" : 3,
+  "processingTime" : 1
+}, {
+  "id" : 9,
+  "weightStart" : 1,
+  "weightEnd" : 55,
+  "deadline" : 2,
+  "processingTime" : 1
+}, {
+  "id" : 10,
+  "weightStart" : 10,
+  "weightEnd" : 34,
+  "deadline" : 12,
+  "processingTime" : 1
+}, {
+  "id" : 11,
+  "weightStart" : 3,
+  "weightEnd" : 116,
+  "deadline" : 5,
+  "processingTime" : 1
+}, {
+  "id" : 12,
+  "weightStart" : 2,
+  "weightEnd" : 138,
+  "deadline" : 5,
+  "processingTime" : 1
+}, {
+  "id" : 13,
+  "weightStart" : 4,
+  "weightEnd" : 34,
+  "deadline" : 13,
+  "processingTime" : 1
+}, {
+  "id" : 14,
+  "weightStart" : 5,
+  "weightEnd" : 108,
+  "deadline" : 8,
+  "processingTime" : 1
+} ]
