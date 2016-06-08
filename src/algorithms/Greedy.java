@@ -43,8 +43,10 @@ public class Greedy {
 	 * @param sortedJobs
 	 */
 	public Job[] positionTheElement(ArrayList<Job> sortedJobs){
-				
+		objectiveFunctionValue = 0;
+		
 		int countOfJobs = sortedJobs.size();
+		int lastIndex=countOfJobs-1;	
 		//Scheduled jobs will be stored here
 		Job[] scheduledJobs = new Job[countOfJobs];
 		
@@ -65,6 +67,8 @@ public class Greedy {
 					//if findNextFreeIndex is still true, which indicates this job hasn't scheduled.
 					//Then add the weight of unscheduled job to ObjectiveFunctionValue.
 					objectiveFunctionValue +=job.getWeight();
+					scheduledJobs[lastIndex] = job;
+					lastIndex--;
 	//				job.setPosition(-1);
 				}
 		}
@@ -77,6 +81,7 @@ public class Greedy {
 	//or some timeline measurement
 	public void positionJobUniversal(ArrayList<Job> sortedJobs){
 		int processingTime=0;
+		timeline.clear();
 		for(Job job:sortedJobs){
 			long processingTimeOfJob = job.getProcessingTime();
 			long endTime = job.getDeadline();

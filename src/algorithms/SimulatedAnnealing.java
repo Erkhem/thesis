@@ -51,17 +51,17 @@ public class SimulatedAnnealing {
 		
 		while(temperature>endConditionTemperature){
 		
-		int rounds =(int) (size*temperature);
+		int rounds =(int) (temperature);
 		for(int i=0;i<rounds;i++){
-			for(int j=0; j<rounds/10;j++){
-				int startPos= random.nextInt(size);
-				int endPos = random.nextInt(size);
-				if(startPos<endPos){
-				List<Job> subList = copyJobs.subList(startPos, endPos);
-				Collections.reverse(subList);
-				
-				}				
-			}
+//			for(int j=0; j<rounds/10;j++){
+//				int startPos= random.nextInt(size);
+//				int endPos = random.nextInt(size);
+//				if(startPos<endPos){
+//				List<Job> subList = copyJobs.subList(startPos, endPos);
+//				Collections.reverse(subList);
+//				
+//				}				
+//			}
 			
 			//creating new neighboring random solution
 			replaceWith1 = random.nextInt(currentSolution.size());

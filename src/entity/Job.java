@@ -59,9 +59,9 @@ public class Job implements Serializable {
 		{
 			id = nextId++;
 			Random generator = new Random();
-			weight = generator.nextInt(numberOfJobs/2)+1;
+			weight = generator.nextInt(100)+1;
 			processingTime =generator.nextInt(numberOfJobs/2)+1;	 					//sec
-			deadline = (int) (generator.nextInt(numberOfJobs));
+			deadline = (int) (generator.nextInt(numberOfJobs))+1;
 		}
 	public String toString(){
 		return "Id: "+id+"\n Weight: "+weight+"\n processing Time: "+processingTime+"\n deadline: "+deadline;

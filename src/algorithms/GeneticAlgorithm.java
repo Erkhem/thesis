@@ -8,10 +8,10 @@ import entity.Job;
 public class GeneticAlgorithm {
 
 	//GA Parameter
-	private static final double crossoverRate=0.7;
-    private static final double mutationRate = 0.4;
-    private static final double reverseMutationRate = 0.2;
-    private static final int tournamentSize = 5;
+	private static final double crossoverRate=0.6;
+    private static final double mutationRate = 0.001;
+    private static final double reverseMutationRate = 0;
+    private static final int tournamentSize = 13;
     private static final boolean elitism = true;
     
 
@@ -24,7 +24,7 @@ public class GeneticAlgorithm {
         int elitismOffset = 0;
         if (elitism) {
             newPopulation.saveSchedule(0, pop.getFittest());
-            System.out.println("Fittest of pop  "+newPopulation+" is"+newPopulation.getScheduleAt(0).getObjectiveFunctionValue());
+          //  System.out.println("Fittest of pop  "+newPopulation+" is"+newPopulation.getScheduleAt(0).getObjectiveFunctionValue());
             elitismOffset = 1;
         }
 
@@ -73,7 +73,7 @@ public class GeneticAlgorithm {
     public static Schedule crossover(Schedule parent1, Schedule parent2){
     	if(parent1.equals(parent2)){
     		Schedule child = new Schedule(parent1.getPermutation());
-    		System.out.println("Two parents have been chosen the same");
+    	//	System.out.println("Two parents have been chosen the same");
     		return child;
     	}
     	Schedule child = new Schedule(parent1.permutationLenght());

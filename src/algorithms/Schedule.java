@@ -36,8 +36,8 @@ public class Schedule {
 	private int calculate() {		
 		int weightSum = 0;
 		int currentNeededTime=0;
-		
-		for (Job i : permutation) {
+		for (Job i : permutation) {			
+			
 			currentNeededTime += i.getProcessingTime();		//adding current needed time
 			if (currentNeededTime > i.getDeadline()) {
 				weightSum += i.getWeight();
